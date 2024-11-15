@@ -21,7 +21,7 @@ def get_team_id_by_number(team_number):
         response.raise_for_status()
 
 def get_events_by_team_id(team_id):
-    url = f"https://www.robotevents.com/api/v2/teams/{team_id}/events"
+    url = f"https://www.robotevents.com/api/v2/teams/{team_id}/events?season%5B%5D=190"
     headers = {
         'accept': 'application/json',
         'Authorization': 'Bearer ' + BEARER_ID
@@ -51,8 +51,9 @@ def get_matches_by_event_id(event_id):
         response.raise_for_status()
 
 # Example usage
-team_number = '2654E'
+team_number = '229V'
 team_id = get_team_id_by_number(team_number)
+print(team_id)
 if team_id:
     events = get_events_by_team_id(team_id)
     if events:
